@@ -19,7 +19,7 @@ const SystemControl = (props) => {
   }
 
   return (
-    <div>
+    <div id="systemcontrols">
       <button onClick={reboot}>reboot</button>
       <button onClick={shutdown}>shutdown</button>
     </div>

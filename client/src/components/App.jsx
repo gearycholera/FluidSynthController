@@ -45,7 +45,7 @@ export default class App extends React.Component {
         <div id="load">
           <button id="btnload" onClick={this.appendFile}>load your config</button>
         </div>
-        <div id="systemcontrols">
+        <div>
           <SystemControl />
         </div>
       </div>

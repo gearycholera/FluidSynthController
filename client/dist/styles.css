@@ -3,12 +3,19 @@ body {
   font-family: courier;
 }
 
+p {
+  font-size: 20px;
+}
+
 #load {
   margin-top: 20px;
 }
 
 #systemcontrols {
   margin-top: 50px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
 }
 
 #btnload {
