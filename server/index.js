@@ -9,8 +9,12 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 
 app.post('/load', (req, res) => {
-  console.log(req.body.config)
-  res.send('cool')
+  let text = req.body.config.join('\n');
+  fs.appendFile('./sampleconfig.txt', '\n' + text, (err) => {
+    if (err) throw err;
+    console.log('The "data to append" was appended to file!');
+    res.send('done')
+  });
 })
 
 let port = 3000;
