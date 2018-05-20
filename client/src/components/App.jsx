@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Channel from './Channel.jsx';
+import SystemControl from './SystemControl.jsx';
 
 export default class App extends React.Component {
   
@@ -38,9 +39,15 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <p>make your picks</p>
-        {channels}
-        <button onClick={this.appendFile}>load</button>
+        <div id="channels">
+          {channels}
+        </div>
+        <div id="load">
+          <button onClick={this.appendFile}>load your config</button>
+        </div>
+        <div id="systemcontrols">
+          <SystemControl />
+        </div>
       </div>
     )
   }

@@ -14,9 +14,17 @@ app.post('/load', (req, res) => {
   fs.writeFile('./sampleconfig.txt', text, (err) => {
     if (err) throw err;
     console.log('The data was appended to file');
-    shell.exec('sh restartFluidSynth.sh')
+    //shell.exec('sh restartFluidSynth.sh')
     res.send('done')
   });
+})
+
+app.get('/reboot', (req) => {
+  console.log('echo reboot script')
+})
+
+app.get('/shutdown', (req) => {
+  console.log('echo shutdown script')
 })
 
 let port = 3000;
