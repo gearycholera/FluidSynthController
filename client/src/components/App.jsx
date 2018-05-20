@@ -11,15 +11,19 @@ export default class App extends React.Component {
     }
   }
 
+
+
   render() {
     let channels = [];
     for (var i = 0; i < 16; i++) {
-      channels.push(<Channel key={i} />)
+      channels.push(<Channel key={i} ch={i+1} />)
     }
+
     return (
       <div>
         <p>make your picks</p>
         {channels}
+        <button>load</button>
       </div>
     )
   }
