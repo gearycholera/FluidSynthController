@@ -5,6 +5,7 @@ body {
 
 p {
   font-size: 20px;
+  font-weight: bold;
 }
 
 #load {
@@ -12,7 +13,7 @@ p {
 }
 
 #systemcontrols {
-  margin-top: 50px;
+  margin-top: 40px;
   width: 250px;
   display: flex;
   justify-content: center;
