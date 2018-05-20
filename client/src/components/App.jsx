@@ -9,14 +9,17 @@ export default class App extends React.Component {
     this.state = {
       channels: []
     }
+    this.handleInput = this.handleInput.bind(this);
   }
 
-
+  handleInput(e) {
+    console.log(`select ${e.target.id} 1 ${e.target.value}`)
+  }
 
   render() {
     let channels = [];
     for (var i = 0; i < 16; i++) {
-      channels.push(<Channel key={i} ch={i+1} />)
+      channels.push(<Channel key={i} ch={i} handleInput={this.handleInput}/>)
     }
 
     return (
