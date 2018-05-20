@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Channel from './Channel.jsx';
 
 export default class App extends React.Component {
   
   constructor(props) {
     super(props);
+    this.state = {
+      channels: []
+    }
   }
 
   render() {
+    let channels = [];
+    for (var i = 0; i < 16; i++) {
+      channels.push(<Channel key={i} />)
+    }
     return (
       <div>
-        <h1>Hello World</h1>
+        <p>make your picks</p>
+        {channels}
       </div>
     )
   }
