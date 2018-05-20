@@ -1,7 +1,1 @@
-select 0 1 0 005
-select 1 1 0 004
-select 2 1 0 019
-select 3 1 0 027
-select 4 1 128 001
-select 5 1 0 015
-select 6 1 128 008
+select 0 1 0 013

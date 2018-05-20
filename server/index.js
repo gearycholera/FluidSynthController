@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 //const User = require('./../database/model.js');
 const fs = require('fs');
+const shell = require('shelljs');
 
 let app = express();
 
@@ -13,6 +14,7 @@ app.post('/load', (req, res) => {
   fs.writeFile('./sampleconfig.txt', text, (err) => {
     if (err) throw err;
     console.log('The data was appended to file');
+    shell.exec('sh test.sh')
     res.send('done')
   });
 })
