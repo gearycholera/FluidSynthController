@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Channel from './Channel.jsx';
+import instruments from './../../../options.js';
 
 export default class App extends React.Component {
   
@@ -37,6 +38,8 @@ export default class App extends React.Component {
     for (var i = 0; i < 16; i++) {
       channels.push(<Channel key={i} ch={i} handleInput={this.handleInput}/>)
     }
+
+    console.log(instruments);
 
     return (
       <div>
