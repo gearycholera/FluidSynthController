@@ -27,8 +27,8 @@ export default class App extends React.Component {
       if (this.state.channels[i]) config.push(this.state.channels[i]);
     }
     axios.post('/load', {config: config})
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .then((res) => alert('config successfully loaded'))
+    .catch((err) => alert('error loading config file'))
   }
 
   render() {
