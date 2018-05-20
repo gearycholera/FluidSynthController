@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Channel from './Channel.jsx';
-import instruments from './../../../options.js';
 
 export default class App extends React.Component {
   
@@ -11,11 +10,11 @@ export default class App extends React.Component {
     this.state = {
       channels: []
     }
-    this.handleInput = this.handleInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.appendFile = this.appendFile.bind(this);
   }
 
-  handleInput(e) {
+  handleChange(e) {
     let channels = this.state.channels.slice();
     channels[e.target.id] = `select ${e.target.id} 1 ${e.target.value}`;
     this.setState({channels: channels});
@@ -26,9 +25,7 @@ export default class App extends React.Component {
     for (var i = 0; i < this.state.channels.length; i++) {
       if (this.state.channels[i]) config.push(this.state.channels[i]);
     }
-    axios.post('/load', {
-      config: config
-    })
+    axios.post('/load', {config: config})
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
   }
@@ -36,10 +33,8 @@ export default class App extends React.Component {
   render() {
     let channels = [];
     for (var i = 0; i < 16; i++) {
-      channels.push(<Channel key={i} ch={i} handleInput={this.handleInput}/>)
+      channels.push(<Channel key={i} ch={i} handleChange={this.handleChange}/>)
     }
-
-    console.log(instruments);
 
     return (
       <div>
