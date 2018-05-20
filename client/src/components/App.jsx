@@ -43,7 +43,7 @@ export default class App extends React.Component {
           {channels}
         </div>
         <div id="load">
-          <button onClick={this.appendFile}>load your config</button>
+          <button id="btnload" onClick={this.appendFile}>load your config</button>
         </div>
         <div id="systemcontrols">
           <SystemControl />

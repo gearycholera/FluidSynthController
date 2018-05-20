@@ -2,3 +2,15 @@ body {
   background-color: #d6dadb;
   font-family: courier;
 }
+
+#load {
+  margin-top: 20px;
+}
+
+#systemcontrols {
+  margin-top: 50px;
+}
+
+#btnload {
+  width: 250px;
+}
