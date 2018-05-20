@@ -20,11 +20,11 @@ app.post('/load', (req, res) => {
 })
 
 app.get('/reboot', (req) => {
-  console.log('echo reboot script')
+  shell.exec('sudo reboot')
 })
 
 app.get('/shutdown', (req) => {
-  console.log('echo shutdown script')
+  shell.exec('sudo poweroff')
 })
 
 let port = 3000;
