@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import Channel from './Channel.jsx';
 
 export default class App extends React.Component {
@@ -10,10 +11,25 @@ export default class App extends React.Component {
       channels: []
     }
     this.handleInput = this.handleInput.bind(this);
+    this.appendFile = this.appendFile.bind(this);
   }
 
   handleInput(e) {
-    console.log(`select ${e.target.id} 1 ${e.target.value}`)
+    let channels = this.state.channels.slice();
+    channels[e.target.id] = `select ${e.target.id} 1 ${e.target.value}`;
+    this.setState({channels: channels});
+  }
+
+  appendFile() {
+    let config = [];
+    for (var i = 0; i < this.state.channels.length; i++) {
+      if (this.state.channels[i]) config.push(this.state.channels[i]);
+    }
+    axios.post('/load', {
+      config: config
+    })
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
   }
 
   render() {
@@ -26,7 +42,7 @@ export default class App extends React.Component {
       <div>
         <p>make your picks</p>
         {channels}
-        <button>load</button>
+        <button onClick={this.appendFile}>load</button>
       </div>
     )
   }
