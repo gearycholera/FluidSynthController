@@ -1,14 +1,7 @@
-select 0 1 0 000
-select 1 1 0 002
-select 2 1 0 004
-select 8 1 fffff
-select 11 1 ddddddd
-select 13 1 44444
-select 0 1 0 128
-select 4 1 0 126
-select 0 1 0 000
-select 1 1 0 006
-select 6 1 0 003
-select 9 1 0 009
-select 11 1 128 007
-select 15 1 0 004
+select 0 1 0 005
+select 1 1 0 004
+select 2 1 0 019
+select 3 1 0 027
+select 4 1 128 001
+select 5 1 0 015
+select 6 1 128 008

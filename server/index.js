@@ -10,9 +10,9 @@ app.use(bodyParser.json());
 
 app.post('/load', (req, res) => {
   let text = req.body.config.join('\n');
-  fs.appendFile('./sampleconfig.txt', '\n' + text, (err) => {
+  fs.writeFile('./sampleconfig.txt', text, (err) => {
     if (err) throw err;
-    console.log('The "data to append" was appended to file!');
+    console.log('The data was appended to file');
     res.send('done')
   });
 })
