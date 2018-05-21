@@ -9,6 +9,10 @@ p {
   font-weight: bold;
 }
 
+button {
+ -webkit-user-select: none;
+}
+
 #load {
   margin-top: 20px;
 }
@@ -21,5 +25,5 @@ p {
 }
 
 #btnload {
-  width: 250px;
+  width: 250px; 
 }
