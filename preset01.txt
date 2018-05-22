@@ -1,0 +1,15 @@
+select 0 1 0 000
+select 1 1 0 001
+select 2 1 0 003
+select 3 1 0 002
+select 4 1 0 004
+select 5 1 0 005
+select 6 1 0 013
+select 7 1 0 018
+select 8 1 0 017
+select 9 1 0 009
+select 10 1 0 042
+select 11 1 8 118
+select 13 1 8 004
+select 14 1 8 080
+select 15 1 8 026

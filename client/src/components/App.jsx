@@ -31,6 +31,12 @@ export default class App extends React.Component {
     .catch((err) => alert('error loading config file'))
   }
 
+  loadPreset() {
+    axios.get('/preset01')
+    .then((res) => console.log('done'))
+    .catch((err)=> console.log(err))
+  }
+
   render() {
     let channels = [];
     for (var i = 0; i < 16; i++) {
@@ -46,7 +52,7 @@ export default class App extends React.Component {
           <button id="btnload" onClick={this.appendFile}>load your config</button>
         </div>
         <div id="btnspreset">
-          <button>preset 01</button>
+          <button onClick={this.loadPreset}>preset 01</button>
           <button>preset 02</button>
           <button>preset 03</button>
         </div>

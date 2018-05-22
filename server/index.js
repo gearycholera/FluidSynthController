@@ -18,11 +18,16 @@ app.post('/load', (req, res) => {
   });
 })
 
-app.get('/reboot', (req) => {
+app.get('/preset01', (req, res) => {
+  let stream = fs.createReadStream('preset01.txt').pipe(fs.createWriteStream('sampleconfig.txt'));
+  stream.on('finish', () => res.send('done'))
+})
+
+app.get('/reboot', (req, res) => {
   shell.exec('sudo reboot')
 })
 
-app.get('/shutdown', (req) => {
+app.get('/shutdown', (req, res) => {
   shell.exec('sudo poweroff')
 })
 
