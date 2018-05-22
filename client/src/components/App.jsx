@@ -14,6 +14,7 @@ export default class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.appendFile = this.appendFile.bind(this);
     this.loadPreset = this.loadPreset.bind(this);
+    this.savePreset = this.savePreset.bind(this);
   }
 
   handleChange(e) {
@@ -35,8 +36,22 @@ export default class App extends React.Component {
   loadPreset(e) {
     let preset = e.target.id;
     axios.get('/loadpreset', {params: {preset: preset}})
-    .then((res) => console.log('done'))
-    .catch((err)=> console.log(err))
+    .then((res) => alert('config successfully loaded'))
+    .catch((err)=> alert('error loading config file'))
+  }
+
+  savePreset() {
+    let choice = prompt('which preset? 1, 2, or 3');
+    var options = ['1', '2', '3'];
+    if (options.includes(choice)) {
+      let config = [];
+      for (var i = 0; i < this.state.channels.length; i++) {
+        if (this.state.channels[i]) config.push(this.state.channels[i]);
+      }
+      axios.post('/save', {config: config, preset: choice})
+      .then((res) => alert('config successfully saved to preset' + choice))
+      .catch((err) => alert('error saving config file'))
+    }
   }
 
   render() {
@@ -50,8 +65,9 @@ export default class App extends React.Component {
         <div id="channels">
           {channels}
         </div>
-        <div id="load">
-          <button id="btnload" onClick={this.appendFile}>load your config</button>
+        <div className="load-save-buttons">
+          <button id="load" onClick={this.appendFile}>load your config</button>
+          <button id="save" onClick={this.savePreset}>save your config</button>
         </div>
         <div className="preset-buttons">
           <button id="preset01" onClick={this.loadPreset}>preset 1</button>

@@ -28,6 +28,17 @@ app.get('/loadpreset', (req, res) => {
   })
 })
 
+app.post('/save', (req, res) => {
+  let text = req.body.config.join('\n');
+  let preset = 'preset0' + req.body.preset + '.txt';
+  fs.writeFile(preset, text, (err) => {
+    if (err) throw err;
+    console.log('The data was appended to file');
+    //shell.exec('sh restartFluidSynth.sh')
+    res.send('done')
+  });
+})
+
 app.get('/reboot', (req, res) => {
   shell.exec('sudo reboot')
 })

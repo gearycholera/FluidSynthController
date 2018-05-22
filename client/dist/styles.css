@@ -13,6 +13,17 @@ button {
  -webkit-user-select: none;
 }
 
+.load-save-buttons {
+  margin-top: 20px;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.load-save-buttons > button {
+  width: 120px;
+}
+
 .preset-buttons {
   margin-top: 20px;
   width: 250px;
@@ -24,17 +35,9 @@ button {
   width: 80px;
 }
 
-#load {
-  margin-top: 20px;
-}
-
 #systemcontrols {
   margin-top: 40px;
   width: 250px;
   display: flex;
   justify-content: center;
-}
-
-#btnload {
-  width: 250px; 
 }
