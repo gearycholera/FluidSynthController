@@ -13,6 +13,17 @@ button {
  -webkit-user-select: none;
 }
 
+.preset-buttons {
+  margin-top: 20px;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.preset-buttons > button {
+  width: 80px;
+}
+
 #load {
   margin-top: 20px;
 }

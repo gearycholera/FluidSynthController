@@ -53,10 +53,10 @@ export default class App extends React.Component {
         <div id="load">
           <button id="btnload" onClick={this.appendFile}>load your config</button>
         </div>
-        <div id="btnspreset">
-          <button id="preset01" onClick={this.loadPreset}>preset 01</button>
-          <button id="preset02" onClick={this.loadPreset}>preset 02</button>
-          <button id="preset03" onClick={this.loadPreset}>preset 03</button>
+        <div className="preset-buttons">
+          <button id="preset01" onClick={this.loadPreset}>preset 1</button>
+          <button id="preset02" onClick={this.loadPreset}>preset 2</button>
+          <button id="preset03" onClick={this.loadPreset}>preset 3</button>
         </div>
         <div>
           <SystemControl />
