@@ -1,0 +1,5 @@
+select 10 1 0 042
+select 11 1 8 118
+select 13 1 8 004
+select 14 1 8 080
+select 15 1 8 026

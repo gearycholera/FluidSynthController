@@ -13,6 +13,7 @@ export default class App extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.appendFile = this.appendFile.bind(this);
+    this.loadPreset = this.loadPreset.bind(this);
   }
 
   handleChange(e) {
@@ -31,8 +32,9 @@ export default class App extends React.Component {
     .catch((err) => alert('error loading config file'))
   }
 
-  loadPreset() {
-    axios.get('/preset01')
+  loadPreset(e) {
+    let preset = e.target.id;
+    axios.get('/loadpreset', {params: {preset: preset}})
     .then((res) => console.log('done'))
     .catch((err)=> console.log(err))
   }
@@ -52,9 +54,9 @@ export default class App extends React.Component {
           <button id="btnload" onClick={this.appendFile}>load your config</button>
         </div>
         <div id="btnspreset">
-          <button onClick={this.loadPreset}>preset 01</button>
-          <button>preset 02</button>
-          <button>preset 03</button>
+          <button id="preset01" onClick={this.loadPreset}>preset 01</button>
+          <button id="preset02" onClick={this.loadPreset}>preset 02</button>
+          <button id="preset03" onClick={this.loadPreset}>preset 03</button>
         </div>
         <div>
           <SystemControl />
