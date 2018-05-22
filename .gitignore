@@ -1,7 +1,5 @@
 #mine
-sampleconfig.txt
 .DS_Store
-bundle.js
 
 #docker persistent storage
 data/
