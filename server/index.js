@@ -13,7 +13,7 @@ app.post('/load', (req, res) => {
   fs.writeFile('sampleconfig.txt', text, (err) => {
     if (err) throw err;
     console.log('The data was appended to file');
-    //shell.exec('sh restartFluidSynth.sh')
+    shell.exec('sh restartFluidSynth.sh')
     res.send('done')
   });
 })
@@ -23,7 +23,7 @@ app.get('/loadpreset', (req, res) => {
   let stream = fs.createReadStream(presetFile).pipe(fs.createWriteStream('sampleconfig.txt'));
   stream.on('finish', () => {
     console.log('The data was copied to sampleconfig.txt');
-    //shell.exec('sh restartFluidSynth.sh')
+    shell.exec('sh restartFluidSynth.sh')
     res.send('done')
   })
 })
