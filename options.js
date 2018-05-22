@@ -1,5 +1,5 @@
 var instruments = 
-[{value: null, name: 'Select...'},
+[{value: '', name: 'Select...'},
 {value: '0 000', name: 'Yamaha Grand Piano'},
 {value: '0 001', name: 'Bright Yamaha Grand'},
 {value: '0 002', name: 'Electric Piano'},

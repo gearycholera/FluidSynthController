@@ -15,6 +15,7 @@ export default class App extends React.Component {
     this.appendFile = this.appendFile.bind(this);
     this.loadPreset = this.loadPreset.bind(this);
     this.savePreset = this.savePreset.bind(this);
+    this.showPreset = this.showPreset.bind(this);
   }
 
   handleChange(e) {
@@ -36,8 +37,8 @@ export default class App extends React.Component {
   loadPreset(e) {
     let preset = e.target.id;
     axios.get('/loadpreset', {params: {preset: preset}})
-    .then((res) => alert('config successfully loaded'))
-    .catch((err)=> alert('error loading config file'))
+    .then((res) => this.showPreset(res))
+    .catch((err)=> alert('error loading preset file'))
   }
 
   savePreset() {
@@ -52,6 +53,24 @@ export default class App extends React.Component {
       .then((res) => alert('config successfully saved to preset' + choice))
       .catch((err) => alert('error saving config file'))
     }
+  }
+
+  showPreset(text) {
+    let channels = [];
+    let assignments = {};
+    let lines = text.data.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      let selectors = lines[i].split(' ');
+      let instrumentCode = selectors[3] + ' ' + selectors[4];
+      let channel = selectors[1];
+      channels[channel] = lines[i];
+      assignments[i] = instrumentCode;
+    }
+    for (var i = 0; i < 16; i++) {
+      let val = (assignments[i] ? assignments[i] : '');
+      document.getElementById(i).value = val;
+    }
+    this.setState({channels: channels});
   }
 
   render() {

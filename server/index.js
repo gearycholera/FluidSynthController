@@ -19,11 +19,14 @@ app.post('/load', (req, res) => {
 
 app.get('/loadpreset', (req, res) => {
   let presetFile =req.query.preset + '.txt';
-  let stream = fs.createReadStream(presetFile).pipe(fs.createWriteStream('sampleconfig.txt'));
+  let stream = fs.createReadStream(presetFile)
+  stream.on('open', () => {
+    stream.pipe(fs.createWriteStream('sampleconfig.txt'));
+    stream.pipe(res);
+  });
   stream.on('finish', () => {
-    shell.exec('sh restartFluidSynth.sh')
-    res.send('done')
-  })
+    //shell.exec('sh restartFluidSynth.sh')
+  });
 })
 
 app.post('/save', (req, res) => {
