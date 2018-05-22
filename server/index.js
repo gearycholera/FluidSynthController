@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-//const User = require('./../database/model.js');
 const fs = require('fs');
 const shell = require('shelljs');
 
