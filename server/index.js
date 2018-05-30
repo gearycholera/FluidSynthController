@@ -25,7 +25,7 @@ app.get('/loadpreset', (req, res) => {
     stream.pipe(res);
   });
   stream.on('finish', () => {
-    //shell.exec('sh restartFluidSynth.sh')
+    shell.exec('sh restartFluidSynth.sh')
   });
 })
 
