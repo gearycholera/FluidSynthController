@@ -1,7 +1,7 @@
 {
-  "name": "app",
+  "name": "FluidSynthController",
   "version": "1.0.0",
-  "description": "app",
+  "description": "Web based controller for FluidSynth",
   "author": "giri",
   "license": "MIT",
   "engines": {
